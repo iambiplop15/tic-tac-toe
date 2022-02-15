@@ -1,6 +1,6 @@
 import random
 from tkinter import *
-
+print("hello")
 def next_turn(row,column):
     global player
     if buttons[row][column]["text"] == "" and check_winner() is False:
@@ -22,8 +22,6 @@ def next_turn(row,column):
                 label.config(text=f"{player} turn")
             elif check_winner() == "draw":
                 label.config(text="Game draw")    
-
-
 
 def check_winner():
     for row in range(3):
@@ -67,7 +65,6 @@ def empty_spaces():
     else:
         return True
 
-
 def new_game():
     global player
     player = random.choice(players)
@@ -75,7 +72,6 @@ def new_game():
     for row in range(3):
         for column in range(3):
             buttons[row][column].config(text="",bg="#F0F0F0")
-
 
 root = Tk()
 root.title("Tic Tac Toe")
@@ -99,7 +95,4 @@ for row in range(3):
                                   height=2,
                                   command= lambda row=row,column=column : next_turn(row,column))
         buttons[row][column].grid(row=row,column=column)
-        
-        
-
 root.mainloop()
